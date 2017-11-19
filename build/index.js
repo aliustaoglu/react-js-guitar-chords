@@ -495,13 +495,13 @@ var drawOpenStringNotes = function drawOpenStringNotes(notes) {
 
 var ordinatBuild = function ordinatBuild(ordinats) {
   return ordinats.map(function (ordinat, ind) {
-    return _react2.default.createElement('line', { x1: '5', y1: ordinat, x2: '55', y2: ordinat, style: { stroke: 'rgb(0,0,0)', strokeWidth: '0.5' } });
+    return _react2.default.createElement('line', { key: 'ordinat' + ind, x1: '5', y1: ordinat, x2: '55', y2: ordinat, style: { stroke: 'rgb(0,0,0)', strokeWidth: '0.5' } });
   });
 };
 
 var axisBuild = function axisBuild(axes) {
   return axes.map(function (axis, ind) {
-    return _react2.default.createElement('line', { x1: axis, y1: '12', x2: axis, y2: '62', style: { stroke: 'rgb(0,0,0)', strokeWidth: '0.5' } });
+    return _react2.default.createElement('line', { key: 'axis' + ind, x1: axis, y1: '12', x2: axis, y2: '62', style: { stroke: 'rgb(0,0,0)', strokeWidth: '0.5' } });
   });
 };
 
@@ -516,14 +516,15 @@ var drawFretboard = function drawFretboard(frets) {
   );
 };
 
-var drawNotes = function drawNotes(notes) {
+var drawNotes = function drawNotes(notes, barre) {
   var circles = notes.map(function (note, ind) {
-    if (note < 1) return _react2.default.createElement('g', null);
+    note = note - barre;
+    if (note < 1) return _react2.default.createElement('g', { key: 'note' + ind });
 
     var x = (6 - ind) * 10 - 5;
     var y = 7 + note * 10;
 
-    return _react2.default.createElement('circle', { cx: x, cy: y, r: '2', stroke: 'black', strokeWidth: '1', fill: 'black' });
+    return _react2.default.createElement('circle', { key: 'note' + ind, cx: x, cy: y, r: '2', stroke: 'black', strokeWidth: '1', fill: 'black' });
   });
 
   return _react2.default.createElement(
@@ -650,7 +651,7 @@ var Chord = function (_Component) {
         ),
         _fret2.default.drawOpenStringNotes(notes),
         _fret2.default.drawFretboard(),
-        _fret2.default.drawNotes(notes)
+        _fret2.default.drawNotes(notes, this.props.barre)
       );
     }
   }]);

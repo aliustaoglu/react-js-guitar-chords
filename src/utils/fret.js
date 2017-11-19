@@ -22,13 +22,13 @@ const drawOpenStringNotes = (notes, barre = 0) => {
 
 const ordinatBuild = ordinats => {
   return ordinats.map( (ordinat, ind) => {
-    return <line x1="5" y1={ordinat} x2="55" y2={ordinat} style={{ stroke: 'rgb(0,0,0)', strokeWidth: '0.5' }} />;
+    return <line key={'ordinat'+ind} x1="5" y1={ordinat} x2="55" y2={ordinat} style={{ stroke: 'rgb(0,0,0)', strokeWidth: '0.5' }} />;
   } );
 }
 
 const axisBuild = axes => {
   return axes.map( (axis, ind) => {
-    return <line x1={axis} y1="12" x2={axis} y2="62" style={{ stroke: 'rgb(0,0,0)', strokeWidth: '0.5' }} />;
+    return <line key={'axis'+ind} x1={axis} y1="12" x2={axis} y2="62" style={{ stroke: 'rgb(0,0,0)', strokeWidth: '0.5' }} />;
   } );
 }
 
@@ -45,14 +45,15 @@ const drawFretboard = frets => {
   );
 };
 
-const drawNotes = notes => {
+const drawNotes = (notes, barre) => {
   const circles = notes.map((note, ind) => {
-    if (note < 1) return <g />;
+    note = note - barre;
+    if (note < 1) return <g key={'note' + ind} />;
 
     const x = (6 - ind) * 10 - 5;
     const y = 7 + note * 10;
 
-    return <circle cx={x} cy={y} r="2" stroke="black" strokeWidth="1" fill="black" />;
+    return <circle key={'note' + ind} cx={x} cy={y} r="2" stroke="black" strokeWidth="1" fill="black" />;
   });
 
   return <g>{circles}</g>;

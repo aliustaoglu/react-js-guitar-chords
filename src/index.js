@@ -20,7 +20,7 @@ class Chord extends Component {
         </text>
         {FretUtil.drawOpenStringNotes(notes)}
         {FretUtil.drawFretboard()}
-        {FretUtil.drawNotes(notes)}
+        {FretUtil.drawNotes(notes, this.props.barre)}
       </svg>
     );
   }
