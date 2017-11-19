@@ -1,0 +1,37 @@
+{
+  "name": "react-js-guitar-chords",
+  "version": "0.0.1",
+  "description": "Bare minimum guitar chord builder that does not use d3 or other libraries",
+  "main": "build/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "jest": "^21.2.1",
+    "prop-types": "^15.6.0",
+    "react": "^15.5.4",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliustaoglu/react-js-guitar-chords.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Cuneyt Aliustaoglu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aliustaoglu/react-js-guitar-chords/issues"
+  },
+  "homepage": "https://github.com/aliustaoglu/react-js-guitar-chords#readme"
+}
